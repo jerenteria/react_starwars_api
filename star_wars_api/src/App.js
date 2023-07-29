@@ -15,7 +15,12 @@ function App() {
     setIsLoading(true);
     setError(null);
     try {
-      const response = await fetch('https://swapi.dev/api/films/');
+      // /movies creates new node in firebase database and you need .json at the end for firebase or else request will fail
+      const response = await fetch('https://react-starwars-api-3132b-default-rtdb.firebaseio.com/movies.json');
+
+
+      // sends get request to star wars api commented out bc now i am sending request to firebase for movies added no longer starwars api
+      // const response = await fetch('https://swapi.dev/api/films/');
 
       if (!response.ok) {
         throw new Error('Something went wrong!')
